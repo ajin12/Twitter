@@ -5,6 +5,7 @@ INJECTED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/A
 INJECTED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/AndroidManifest.xml:2:1-41:12
 INJECTED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/AndroidManifest.xml:2:1-41:12
 MERGED from [com.codepath.libraries:android-oauth-handler:1.4.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/c2d56805f94341ae0804bba4138499ec/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:design:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4ee3aff2546305862dcd68a9bfd5fc3e/AndroidManifest.xml:2:1-12:12
 MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/ce7e274f548710f895cf7c9d063a56d6/AndroidManifest.xml:17:1-22:12
@@ -17,6 +18,7 @@ MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/ayjin/.
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/ceca1c29ce2cdf782ba386d73cadb53d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/f560c8633dba75e73b4af8c9ccc32430/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/7c5b7649e6ef653060227875d8c68059/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4b8925834ecc6cbf93d1ead1b0ed48ce/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/d9825421f3d651ac1b01a1fe7cd228e5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:loader:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/101ae74db1286c4e82fb934ff23426d3/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:viewpager:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/25571e7dd9db32455e84a488c24fe917/AndroidManifest.xml:17:1-22:12
@@ -35,6 +37,7 @@ MERGED from [android.arch.persistence:db:1.1.1] /Users/ayjin/.gradle/caches/tran
 MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/955efb5739421e107ccf718b4e391e08/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/d249e3fa91306dca7ed26b077a0bba26/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/44b72876d5e4dad69bea653f75ed70ef/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/09326a8e681513de8127cd2f01e59a33/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/1fb71eb50709aaab492d154fd0988f19/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:documentfile:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/dd30b1c0d782ef3c8b3aac3859c994b0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/c40a5671263e43fba3135366f4a7d0a8/AndroidManifest.xml:17:1-22:12
@@ -68,6 +71,8 @@ ADDED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/Andr
 		ADDED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/AndroidManifest.xml:8:22-78
 application
 ADDED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/AndroidManifest.xml:10:5-39:19
+MERGED from [com.android.support:design:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/AndroidManifest.xml:22:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4ee3aff2546305862dcd68a9bfd5fc3e/AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4ee3aff2546305862dcd68a9bfd5fc3e/AndroidManifest.xml:10:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/83447ae1f8d8098f5b3e46e4b2ad85f4/AndroidManifest.xml:9:5-20
@@ -146,6 +151,8 @@ INJECTED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/A
 INJECTED from /Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/AndroidManifest.xml
 MERGED from [com.codepath.libraries:android-oauth-handler:1.4.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/c2d56805f94341ae0804bba4138499ec/AndroidManifest.xml:7:5-9:41
 MERGED from [com.codepath.libraries:android-oauth-handler:1.4.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/c2d56805f94341ae0804bba4138499ec/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4ee3aff2546305862dcd68a9bfd5fc3e/AndroidManifest.xml:6:5-8:41
@@ -170,6 +177,8 @@ MERGED from [com.android.support:support-core-utils:28.0.0] /Users/ayjin/.gradle
 MERGED from [com.android.support:support-core-utils:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/f560c8633dba75e73b4af8c9ccc32430/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/7c5b7649e6ef653060227875d8c68059/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/7c5b7649e6ef653060227875d8c68059/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4b8925834ecc6cbf93d1ead1b0ed48ce/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/4b8925834ecc6cbf93d1ead1b0ed48ce/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/d9825421f3d651ac1b01a1fe7cd228e5/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/d9825421f3d651ac1b01a1fe7cd228e5/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/101ae74db1286c4e82fb934ff23426d3/AndroidManifest.xml:20:5-44
@@ -206,6 +215,8 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/ayjin/.gradle/ca
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/d249e3fa91306dca7ed26b077a0bba26/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/44b72876d5e4dad69bea653f75ed70ef/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/44b72876d5e4dad69bea653f75ed70ef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/09326a8e681513de8127cd2f01e59a33/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/09326a8e681513de8127cd2f01e59a33/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/1fb71eb50709aaab492d154fd0988f19/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/1fb71eb50709aaab492d154fd0988f19/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] /Users/ayjin/.gradle/caches/transforms-2/files-2.1/dd30b1c0d782ef3c8b3aac3859c994b0/AndroidManifest.xml:20:5-44

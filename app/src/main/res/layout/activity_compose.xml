@@ -6,21 +6,34 @@
     android:layout_height="wrap_content"
     tools:context=".ComposeActivity">
 
-    <EditText
-        android:id="@+id/etTweetInput"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:hint="@string/et_tweet_input"
-        android:inputType="text|textMultiLine"
-        android:maxLength="140"
+        app:counterEnabled="true"
+        app:counterMaxLength="280"
+        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Small"
+        app:counterTextAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bTweet"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/etTweetInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:hint="@string/et_tweet_input"
+            android:inputType="text|textMultiLine"
+            android:maxLength="280" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/bTweet"
@@ -28,11 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Tweet"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/etTweetInput"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 </android.support.constraint.ConstraintLayout>

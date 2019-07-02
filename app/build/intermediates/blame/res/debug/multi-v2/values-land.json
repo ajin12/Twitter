@@ -4,6 +4,25 @@
             "outputFile": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
+                    "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "10",
+                        "endOffsets": "222"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "264",
+                        "endLines": "8",
+                        "endColumns": "10",
+                        "endOffsets": "431"
+                    }
+                },
+                {
                     "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",

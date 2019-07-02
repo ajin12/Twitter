@@ -4,11 +4,13 @@ import android.text.format.DateUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+@Parcel // annotation indicates class is Parcelable
 public class Tweet {
 
     // list out the attributes

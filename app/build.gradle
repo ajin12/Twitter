@@ -41,6 +41,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     // Android Async Http for sending async network requests
     implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
     // Room for simple persistence with an ORM
     implementation "android.arch.persistence.room:runtime:1.1.1"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'

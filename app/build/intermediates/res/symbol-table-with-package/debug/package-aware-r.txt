@@ -647,6 +647,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable ic_compose
 drawable ic_launcher
 drawable notification_action_background
 drawable notification_bg
@@ -693,6 +694,7 @@ id alertTitle
 id all
 id always
 id async
+id bTweet
 id barrier
 id beginning
 id blocking
@@ -720,6 +722,7 @@ id disableHome
 id edit_query
 id end
 id end_padder
+id etTweetInput
 id expand_activities_button
 id expanded_menu
 id fill
@@ -748,6 +751,7 @@ id listMode
 id list_item
 id media_actions
 id message
+id miCompose
 id middle
 id multiply
 id never
@@ -855,6 +859,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_compose
 layout activity_login
 layout activity_timeline
 layout item_tweet
@@ -878,6 +883,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu login
+menu menu_timeline
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -918,6 +924,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string et_tweet_input
 string intent_host
 string intent_scheme
 string login_label

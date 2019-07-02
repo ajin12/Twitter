@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tvBody"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,8 +29,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
         app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+    <TextView
+        android:id="@+id/tvUserHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/tvTimestamp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvUserName"
+        app:layout_constraintTop_toTopOf="@+id/tvUserName" />
+
+    <TextView
+        android:id="@+id/tvTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/tvUserHandle"
+        app:layout_constraintTop_toTopOf="@+id/tvUserHandle" />
 </android.support.constraint.ConstraintLayout>

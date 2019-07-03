@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
@@ -38,6 +39,7 @@ public class TimelineActivity extends AppCompatActivity {
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
     RecyclerView rvTweets;
+    private FloatingActionButton fab;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -77,6 +79,16 @@ public class TimelineActivity extends AppCompatActivity {
         // use custom ActionBar XML
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
         getSupportActionBar().setCustomView(R.layout.actionbar_title);
+
+        fab = (FloatingActionButton) findViewById(R.id.miCompose);
+        // Dial contact's number.
+        // This shows the dialer with the number, allowing you to explicitly initiate the call.
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                composeMessage();
+            }
+        });
     }
 
     public void fetchTimelineAsync(int i) {
@@ -135,6 +147,7 @@ public class TimelineActivity extends AppCompatActivity {
         return super.onPrepareOptionsMenu(menu);
     }
 
+//    TODO -- edit
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items

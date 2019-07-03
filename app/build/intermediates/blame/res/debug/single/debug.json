@@ -28,6 +28,10 @@
         "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
+        "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/drawable_ic_vector_search_stroke.xml.flat",
+        "source": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/res/drawable/ic_vector_search_stroke.xml"
+    },
+    {
         "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/drawable_design_fab_background.xml.flat",
         "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/res/drawable/design_fab_background.xml"
     },
@@ -362,6 +366,10 @@
     {
         "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/drawable_ic_vector_search.xml.flat",
+        "source": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/res/drawable/ic_vector_search.xml"
     },
     {
         "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",

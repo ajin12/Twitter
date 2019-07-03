@@ -1039,6 +1039,8 @@ drawable ic_vector_messages
 drawable ic_vector_messages_stroke
 drawable ic_vector_notifications
 drawable ic_vector_notifications_stroke
+drawable ic_vector_search
+drawable ic_vector_search_stroke
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1165,6 +1167,7 @@ id miCompose
 id miHome
 id miMessages
 id miNotifications
+id miSearch
 id middle
 id mini
 id mtrl_child_content_container

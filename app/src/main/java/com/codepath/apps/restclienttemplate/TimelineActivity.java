@@ -166,7 +166,7 @@ public class TimelineActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == COMPOSE_TWEET_REQUEST_CODE && resultCode == RESULT_OK) {
-            Tweet resultTweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra(RESULT_TWEET_KEY));
+            Tweet resultTweet = (Tweet) Parcels.unwrap(data.getParcelableExtra(RESULT_TWEET_KEY));
             tweets.add(0, resultTweet);
             tweetAdapter.notifyItemInserted(0);
             rvTweets.scrollToPosition(0);

@@ -706,6 +706,7 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color tab_selector
 color tooltip_background_dark
 color tooltip_background_light
 color twitter_blue
@@ -1027,10 +1028,17 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_compose
+drawable ic_home_twitter
 drawable ic_launcher
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_vector_home
+drawable ic_vector_home_stroke
+drawable ic_vector_messages
+drawable ic_vector_messages_stroke
+drawable ic_vector_notifications
+drawable ic_vector_notifications_stroke
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1154,6 +1162,9 @@ id masked
 id media_actions
 id message
 id miCompose
+id miHome
+id miMessages
+id miNotifications
 id middle
 id mini
 id mtrl_child_content_container

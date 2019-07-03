@@ -1,8 +1,10 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +22,7 @@ import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -27,11 +30,13 @@ public class TimelineActivity extends AppCompatActivity {
 
     public static final int COMPOSE_TWEET_REQUEST_CODE = 100;
     private static final String RESULT_TWEET_KEY = "result_tweet";
+    private SwipeRefreshLayout swipeContainer;
     TwitterClient client;
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
     RecyclerView rvTweets;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,59 @@ public class TimelineActivity extends AppCompatActivity {
         // set the adapter
         rvTweets.setAdapter(tweetAdapter);
         populateTimeline();
+
+        // lookup the swipe container view
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchTimelineAsync(0);
+            }
+        });
+        // configure the refreshing colors
+        swipeContainer.setColorSchemeColors(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+    }
+
+    public void fetchTimelineAsync(int i) {
+        // Send the network request to fetch the updated data
+        // `client` here is an instance of Android Async HTTP
+        // getHomeTimeline is an example endpoint.
+        client.getHomeTimeline(new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Remember to CLEAR OUT old items before appending in the new ones
+                clear();
+                // ...the data has come back, add new items to your adapter...
+                populateTimeline();
+                addAll(tweets); // TODO -- going to be an empty list?
+                // Now we call setRefreshing(false) to signal refresh has finished
+                swipeContainer.setRefreshing(false);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Log.d("TwitterClient", response.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                Log.d("DEBUG", "Fetch timeline error: " + errorResponse.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("DEBUG", "Fetch timeline error: " + errorResponse.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("DEBUG", "Fetch timeline error: " + responseString);
+            }
+        });
     }
 
     @Override
@@ -87,6 +145,18 @@ public class TimelineActivity extends AppCompatActivity {
         // open ComposeActivity to create a new tweet
         Intent composeTweet = new Intent(this, ComposeActivity.class);
         startActivityForResult(composeTweet, COMPOSE_TWEET_REQUEST_CODE);
+    }
+
+    // Clean all elements of the recycler
+    public void clear() {
+        tweets.clear();
+        tweetAdapter.notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        tweets.addAll(list);
+        tweetAdapter.notifyDataSetChanged();
     }
 
     private void populateTimeline() {

@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -85,6 +87,23 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 @Override
                 public void onClick(View v) {
                     replyTweet(v);
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // get item position
+                    int position = getAdapterPosition();
+                    // make sure the position is valid, i.e. actually exists in the view
+                    if (position != RecyclerView.NO_POSITION) {
+                        // get the tweet at this position
+                        Tweet tweet = mTweets.get(position);
+                        // open detail view of tweet
+                        Intent detailTweet = new Intent(context, TweetDetailsActivity.class);
+                        detailTweet.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
+                        context.startActivity(detailTweet);
+                    }
                 }
             });
         }

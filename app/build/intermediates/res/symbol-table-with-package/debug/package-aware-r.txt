@@ -1341,6 +1341,7 @@ layout actionbar_title
 layout activity_compose
 layout activity_login
 layout activity_timeline
+layout activity_tweet_details
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

@@ -724,6 +724,10 @@
         "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/e6d9c49e6993571dc8fe455443b6e82f/res/drawable/ic_mtrl_chip_checked_circle.xml"
     },
     {
+        "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/layout_activity_tweet_details.xml.flat",
+        "source": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/src/main/res/layout/activity_tweet_details.xml"
+    },
+    {
         "merged": "/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_light.xml.flat",
         "source": "/Users/ayjin/.gradle/caches/transforms-2/files-2.1/31f386dc034612d474e383bbeabc5d2b/res/color/abc_primary_text_disable_only_material_light.xml"
     },

@@ -1340,7 +1340,6 @@ layout action_view_progress
 layout actionbar_title
 layout activity_compose
 layout activity_login
-layout activity_reply
 layout activity_timeline
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

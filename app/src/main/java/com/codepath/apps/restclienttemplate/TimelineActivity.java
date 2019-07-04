@@ -16,7 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -41,6 +41,8 @@ public class TimelineActivity extends AppCompatActivity {
     ArrayList<Tweet> tweets;
     RecyclerView rvTweets;
     private FloatingActionButton fab;
+    // Instance of the progress action-view
+    MenuItem miActionProgressItem;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -62,7 +64,9 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.setAdapter(tweetAdapter);
         rvTweets.addItemDecoration(new DividerItemDecoration(rvTweets.getContext(), DividerItemDecoration.VERTICAL));
 
+        showProgressBar();
         populateTimeline();
+        hideProgressBar();
 
         // lookup the swipe container view
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
@@ -70,7 +74,9 @@ public class TimelineActivity extends AppCompatActivity {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                showProgressBar();
                 fetchTimelineAsync(0);
+                hideProgressBar();
             }
         });
         // configure the refreshing colors
@@ -83,9 +89,8 @@ public class TimelineActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
         getSupportActionBar().setCustomView(R.layout.actionbar_title);
 
+        // floating action button for compose
         fab = (FloatingActionButton) findViewById(R.id.miCompose);
-        // Dial contact's number.
-        // This shows the dialer with the number, allowing you to explicitly initiate the call.
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,7 +152,23 @@ public class TimelineActivity extends AppCompatActivity {
         // TODO -- find the button within action-view
 
         // Handle button click here
+
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.pbProgressAction);
+        // Extract the action-view from the menu item
+        ProgressBar pb =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
+        // Return to finish
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    public void showProgressBar() {
+        // Show progress item
+        miActionProgressItem.setVisible(true);
+    }
+
+    public void hideProgressBar() {
+        // Hide progress item
+        miActionProgressItem.setVisible(false);
     }
 
 //    TODO -- edit
@@ -165,13 +186,16 @@ public class TimelineActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        showProgressBar();
         if (requestCode == COMPOSE_TWEET_REQUEST_CODE && resultCode == RESULT_OK) {
             Tweet resultTweet = (Tweet) Parcels.unwrap(data.getParcelableExtra(RESULT_TWEET_KEY));
             tweets.add(0, resultTweet);
             tweetAdapter.notifyItemInserted(0);
             rvTweets.scrollToPosition(0);
-            Toast.makeText(this, "Tweet post successful", Toast.LENGTH_LONG).show();
+//            TODO -- delete toast
+//            Toast.makeText(this, "Tweet post successful", Toast.LENGTH_LONG).show();
         }
+        hideProgressBar();
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -205,7 +229,6 @@ public class TimelineActivity extends AppCompatActivity {
 //                Log.d("TwitterClient", response.toString());
                 // iterate through the JSON array
                 // for each entry, deserialize the JSON object
-
                 for (int i = 0; i < response.length(); i++) {
                     // convert each object to a Tweet model
                     // add that Tweet model to our data source

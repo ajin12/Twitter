@@ -28,4 +28,12 @@
         android:icon="@drawable/ic_vector_messages_stroke"
         app:showAsAction="always">
     </item>
+
+    <item
+        android:id="@+id/pbProgressAction"
+        android:title="Loading..."
+        android:visible="false"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        app:actionLayout="@layout/action_view_progress" />
 </menu>

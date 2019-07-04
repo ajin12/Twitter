@@ -15,6 +15,9 @@ import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
 
     private List<Tweet> mTweets;
@@ -59,22 +62,16 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     // create ViewHolder class
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView ivProfileImage;
-        public TextView tvUsername;
-        public TextView tvHandle;
-        public TextView tvBody;
-        public TextView tvTimestamp;
+        // automatically finds each field by the specified ID
+        @BindView(R.id.ivProfileImage) ImageView ivProfileImage;
+        @BindView(R.id.tvUserName) TextView tvUsername;
+        @BindView(R.id.tvUserHandle) TextView tvHandle;
+        @BindView(R.id.tvBody) TextView tvBody;
+        @BindView(R.id.tvTimestamp) TextView tvTimestamp;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
-            // perform findViewById lookups
-
-            ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
-            tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
-            tvHandle = (TextView) itemView.findViewById(R.id.tvUserHandle);
-            tvBody = (TextView) itemView.findViewById(R.id.tvBody);
-            tvTimestamp = (TextView) itemView.findViewById(R.id.tvTimestamp);
+            ButterKnife.bind(this, itemView);
         }
     }
 

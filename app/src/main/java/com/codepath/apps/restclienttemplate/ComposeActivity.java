@@ -15,21 +15,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class ComposeActivity extends AppCompatActivity {
     public static final String RESULT_TWEET_KEY = "result_tweet";
-    EditText etTweetInput;
-    Button btnSend;
     TwitterClient client;
+    // automatically finds each field by the specified ID.
+    @BindView(R.id.etTweetInput) EditText etTweetInput;
+    @BindView(R.id.bTweet) Button btnSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
-
-        etTweetInput = findViewById(R.id.etTweetInput);
-        btnSend = findViewById(R.id.bTweet);
+        ButterKnife.bind(this);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

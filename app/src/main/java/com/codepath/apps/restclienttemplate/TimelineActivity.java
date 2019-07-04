@@ -29,31 +29,35 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
 
     public static final int COMPOSE_TWEET_REQUEST_CODE = 100;
     private static final String RESULT_TWEET_KEY = "result_tweet";
-    private SwipeRefreshLayout swipeContainer;
     TwitterClient client;
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
-    RecyclerView rvTweets;
-    private FloatingActionButton fab;
     // Instance of the progress action-view
     MenuItem miActionProgressItem;
+
+    // automatically finds each field by the specified ID
+    @BindView(R.id.rvTweet) RecyclerView rvTweets;
+    @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.miCompose) FloatingActionButton fab;
 
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
+        ButterKnife.bind(this);
 
         client = TwitterApp.getRestClient(this);
 
         // find the RecyclerView
-        rvTweets = (RecyclerView) findViewById(R.id.rvTweet);
         // instantiate the arraylist (data source)
         tweets = new ArrayList<>();
         // construct the adapter from this datasource
@@ -67,7 +71,6 @@ public class TimelineActivity extends AppCompatActivity {
         populateTimeline();
 
         // lookup the swipe container view
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         // setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -86,7 +89,6 @@ public class TimelineActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.actionbar_title);
 
         // floating action button for compose
-        fab = (FloatingActionButton) findViewById(R.id.miCompose);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,8 +192,6 @@ public class TimelineActivity extends AppCompatActivity {
             tweets.add(0, resultTweet);
             tweetAdapter.notifyItemInserted(0);
             rvTweets.scrollToPosition(0);
-//            TODO -- delete toast
-//            Toast.makeText(this, "Tweet post successful", Toast.LENGTH_LONG).show();
         }
         hideProgressBar();
         super.onActivityResult(requestCode, resultCode, data);
@@ -224,7 +224,6 @@ public class TimelineActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-//                Log.d("TwitterClient", response.toString());
                 showProgressBar();
                 // iterate through the JSON array
                 // for each entry, deserialize the JSON object

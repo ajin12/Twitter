@@ -1,4 +1,4 @@
-#Thu Jul 04 09:32:53 PDT 2019
+#Thu Jul 04 09:56:40 PDT 2019
 base.0=/Users/ayjin/Documents/FBU/android/projects/Twitter/app/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex

@@ -45,6 +45,7 @@ public class ComposeActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // check if intent was created by clicking on reply or compose
                 if (userHandle == null && tweetID == 0) {
                     sendTweet();
                 } else {

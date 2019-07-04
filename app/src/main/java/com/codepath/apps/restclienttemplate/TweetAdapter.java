@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -82,16 +83,23 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             ibReply.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // get tweet user is responding to
-                    Tweet tweet = mTweets.get(getAdapterPosition());
-                    // create new intent
-                    Intent reply = new Intent(v.getContext(), ComposeActivity.class);
-                    reply.putExtra("user_handle", tweet.user.screenName);
-                    reply.putExtra("tweet_id", tweet.uid);
-                    context.startActivity(reply);
-
+                    replyTweet(v);
                 }
             });
+        }
+
+        private void replyTweet(View v) {
+            // get tweet user is responding to
+            Tweet tweet = mTweets.get(getAdapterPosition());
+            // open ComposeActivity to reply to a tweet
+            Intent reply = new Intent(v.getContext(), ComposeActivity.class);
+            reply.putExtra("user_handle", tweet.user.screenName);
+            reply.putExtra("tweet_id", tweet.uid);
+//            context.startActivity(reply);
+
+//            Intent replyTweet = new Intent(v.getContext(), ComposeActivity.class);
+//            TODO -- magic number
+            ((Activity) context).startActivityForResult(reply, 1000);
         }
     }
 

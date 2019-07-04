@@ -7,5 +7,6 @@
     <string name="intent_host">cprest</string>
     <string name="et_tweet_input">What\'s happening?</string>
     <string name="app_title">Twitter</string>
+    <string name="textview">TextView</string>
 
 </resources>

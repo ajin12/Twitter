@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -68,6 +69,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         @BindView(R.id.tvUserHandle) TextView tvHandle;
         @BindView(R.id.tvBody) TextView tvBody;
         @BindView(R.id.tvTimestamp) TextView tvTimestamp;
+        @BindView(R.id.ibHeart) ImageButton ibHeart;
+        @BindView(R.id.ibReply) ImageButton ibReply;
+        @BindView(R.id.ibRetweet) ImageButton ibRetweet;
 
         public ViewHolder(View itemView) {
             super(itemView);

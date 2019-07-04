@@ -4,6 +4,7 @@ package com.codepath.apps.restclienttemplate;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.Unbinder;
@@ -23,6 +24,9 @@ public class TweetAdapter$ViewHolder_ViewBinding<T extends TweetAdapter.ViewHold
     target.tvHandle = Utils.findRequiredViewAsType(source, R.id.tvUserHandle, "field 'tvHandle'", TextView.class);
     target.tvBody = Utils.findRequiredViewAsType(source, R.id.tvBody, "field 'tvBody'", TextView.class);
     target.tvTimestamp = Utils.findRequiredViewAsType(source, R.id.tvTimestamp, "field 'tvTimestamp'", TextView.class);
+    target.ibHeart = Utils.findRequiredViewAsType(source, R.id.ibHeart, "field 'ibHeart'", ImageButton.class);
+    target.ibReply = Utils.findRequiredViewAsType(source, R.id.ibReply, "field 'ibReply'", ImageButton.class);
+    target.ibRetweet = Utils.findRequiredViewAsType(source, R.id.ibRetweet, "field 'ibRetweet'", ImageButton.class);
   }
 
   @Override
@@ -36,6 +40,9 @@ public class TweetAdapter$ViewHolder_ViewBinding<T extends TweetAdapter.ViewHold
     target.tvHandle = null;
     target.tvBody = null;
     target.tvTimestamp = null;
+    target.ibHeart = null;
+    target.ibReply = null;
+    target.ibRetweet = null;
 
     this.target = null;
   }

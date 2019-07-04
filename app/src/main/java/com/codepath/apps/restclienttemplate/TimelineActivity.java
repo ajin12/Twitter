@@ -36,6 +36,7 @@ import cz.msebera.android.httpclient.Header;
 public class TimelineActivity extends AppCompatActivity {
 
     public static final int COMPOSE_TWEET_REQUEST_CODE = 100;
+    public static final int REPLY_TWEET_REQUEST_CODE = 1000;
     private static final String RESULT_TWEET_KEY = "result_tweet";
     TwitterClient client;
     TweetAdapter tweetAdapter;
@@ -187,7 +188,8 @@ public class TimelineActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         showProgressBar();
-        if ((requestCode == COMPOSE_TWEET_REQUEST_CODE || requestCode == 1000) && resultCode == RESULT_OK) {
+        if ((requestCode == COMPOSE_TWEET_REQUEST_CODE || requestCode == REPLY_TWEET_REQUEST_CODE)
+                && resultCode == RESULT_OK) {
             Tweet resultTweet = (Tweet) Parcels.unwrap(data.getParcelableExtra(RESULT_TWEET_KEY));
             tweets.add(0, resultTweet);
             tweetAdapter.notifyItemInserted(0);

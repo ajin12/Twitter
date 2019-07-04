@@ -25,6 +25,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     private List<Tweet> mTweets;
     Context context;
+    public static final int REPLY_TWEET_REQUEST_CODE = 1000;
 
     // pass in the Tweets array in the constructor
     public TweetAdapter(List<Tweet> tweets) {
@@ -95,11 +96,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             Intent reply = new Intent(v.getContext(), ComposeActivity.class);
             reply.putExtra("user_handle", tweet.user.screenName);
             reply.putExtra("tweet_id", tweet.uid);
-//            context.startActivity(reply);
-
-//            Intent replyTweet = new Intent(v.getContext(), ComposeActivity.class);
-//            TODO -- magic number
-            ((Activity) context).startActivityForResult(reply, 1000);
+            ((Activity) context).startActivityForResult(reply, REPLY_TWEET_REQUEST_CODE);
         }
     }
 

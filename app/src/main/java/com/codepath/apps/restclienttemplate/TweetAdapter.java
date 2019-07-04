@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -55,6 +56,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         viewHolder.tvBody.setText(tweet.body);
         viewHolder.tvTimestamp.setText(tweet.createdAt);
 
+        // load profile picture and crop to a circle
         Glide.with(context)
                 .load(tweet.user.profileImageUrl)
                 .apply(RequestOptions.circleCropTransform())
@@ -62,7 +64,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     }
 
     // create ViewHolder class
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         // automatically finds each field by the specified ID
         @BindView(R.id.ivProfileImage) ImageView ivProfileImage;
         @BindView(R.id.tvUserName) TextView tvUsername;
@@ -73,9 +75,23 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         @BindView(R.id.ibReply) ImageButton ibReply;
         @BindView(R.id.ibRetweet) ImageButton ibRetweet;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            ibReply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // get tweet user is responding to
+                    Tweet tweet = mTweets.get(getAdapterPosition());
+                    // create new intent
+                    Intent reply = new Intent(v.getContext(), ComposeActivity.class);
+                    reply.putExtra("user_handle", tweet.user.screenName);
+                    reply.putExtra("tweet_id", tweet.uid);
+                    context.startActivity(reply);
+
+                }
+            });
         }
     }
 

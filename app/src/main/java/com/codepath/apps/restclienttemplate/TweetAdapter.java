@@ -125,6 +125,23 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 }
             });
 
+            ibRetweet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // get tweet user is retweeting or unretweeting
+                    Tweet tweet = mTweets.get(getAdapterPosition());
+                    if (!tweet.retweeted) {
+                        client.retweetTweet(tweet.uid, new JsonHttpResponseHandler());
+                        ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
+                        tweet.setRetweeted(true);
+                    } else {
+                        client.unretweetTweet(tweet.uid, new JsonHttpResponseHandler());
+                        ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
+                        tweet.setRetweeted(false);
+                    }
+                }
+            });
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

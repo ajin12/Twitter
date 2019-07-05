@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.parceler.Parcels;
 
@@ -23,6 +24,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
 
     // the tweet to display
     Tweet tweet;
+    TwitterClient client;
     public static final int REPLY_TWEET_REQUEST_CODE = 1000;
 
     // the view objects
@@ -47,6 +49,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         tweet = Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
+        client = TwitterApp.getRestClient(this);
 
         // populate the views
         tvUserName.setText(tweet.user.name);
@@ -67,6 +70,35 @@ public class TweetDetailsActivity extends AppCompatActivity {
                 replyTweet(v);
             }
         });
+
+        // set heart button depending on whether tweet is already liked
+        if (tweet.favorited) {
+            ibHeart.setImageResource(R.drawable.ic_vector_heart);
+        } else {
+            ibHeart.setImageResource(R.drawable.ic_vector_heart_stroke);
+        }
+
+        ibHeart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!tweet.favorited) {
+                    client.likeTweet(tweet.uid, new JsonHttpResponseHandler());
+                    ibHeart.setImageResource(R.drawable.ic_vector_heart);
+                } else {
+                    client.unlikeTweet(tweet.uid, new JsonHttpResponseHandler());
+                    ibHeart.setImageResource(R.drawable.ic_vector_heart_stroke);
+                }
+            }
+        });
+
+        // set retweet button depending on whether already retweeted
+        if (tweet.retweeted) {
+            ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
+            ibRetweet.setTag(R.drawable.ic_vector_retweet);
+        } else {
+            ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
+            ibRetweet.setTag(R.drawable.ic_vector_retweet_stroke);
+        }
     }
 
     private void replyTweet(View v) {

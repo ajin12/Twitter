@@ -66,14 +66,21 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         viewHolder.tvHandle.setText("@" + tweet.user.screenName);
         viewHolder.tvBody.setText(tweet.body);
         viewHolder.tvTimestamp.setText(tweet.createdAt);
+//        TODO if else not necessary?
         if (tweet.replyCount != 0) {
             viewHolder.tvReplyCount.setText(String.format(Integer.toString(tweet.replyCount)));
+        } else {
+            viewHolder.tvReplyCount.setText("");
         }
         if (tweet.retweetCount != 0) {
             viewHolder.tvRetweetCount.setText(String.format(Integer.toString(tweet.retweetCount)));
+        } else {
+            viewHolder.tvRetweetCount.setText("");
         }
         if (tweet.favoriteCount != 0) {
             viewHolder.tvFavoriteCount.setText(String.format(Integer.toString(tweet.favoriteCount)));
+        } else {
+            viewHolder.tvFavoriteCount.setText("");
         }
 
         // set heart button depending on whether tweet is already liked

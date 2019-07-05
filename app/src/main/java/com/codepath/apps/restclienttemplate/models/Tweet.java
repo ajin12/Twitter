@@ -42,6 +42,7 @@ public class Tweet {
         if (jsonObject.has("retweet_count")) {
             tweet.retweetCount = jsonObject.getInt("retweet_count");
         }
+        // This object is only available with the Premium and Enterprise tier products.
         if (jsonObject.has("reply_count")) {
             tweet.replyCount = jsonObject.getInt("reply_count");
         }

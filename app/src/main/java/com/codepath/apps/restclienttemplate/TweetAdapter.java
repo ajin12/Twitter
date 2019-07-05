@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -83,6 +86,14 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 .load(tweet.user.profileImageUrl)
                 .apply(RequestOptions.circleCropTransform())
                 .into(viewHolder.ivProfileImage);
+
+        // set media image if it exists
+        if (tweet.mediaUrl != null) {
+            Glide.with(viewHolder.ivMedia.getContext())
+                    .load(tweet.mediaUrl)
+                    .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(80)))
+                    .into(viewHolder.ivMedia);
+        }
     }
 
     // create ViewHolder class
@@ -96,6 +107,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         @BindView(R.id.ibHeart) ImageButton ibHeart;
         @BindView(R.id.ibReply) ImageButton ibReply;
         @BindView(R.id.ibRetweet) ImageButton ibRetweet;
+        @Nullable @BindView(R.id.ivMedia) ImageView ivMedia;
 
         public ViewHolder(final View itemView) {
             super(itemView);

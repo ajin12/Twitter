@@ -67,7 +67,6 @@ public class TweetDetailsActivity extends AppCompatActivity {
                 .into(ivProfileImage);
 
         // set media image if it exists
-
         if (tweet.mediaUrl != null) {
             Glide.with(ivMedia.getContext())
                     .load(tweet.mediaUrl)

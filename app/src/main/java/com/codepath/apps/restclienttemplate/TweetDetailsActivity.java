@@ -84,9 +84,11 @@ public class TweetDetailsActivity extends AppCompatActivity {
                 if (!tweet.favorited) {
                     client.likeTweet(tweet.uid, new JsonHttpResponseHandler());
                     ibHeart.setImageResource(R.drawable.ic_vector_heart);
+                    tweet.setFavorited(true);
                 } else {
                     client.unlikeTweet(tweet.uid, new JsonHttpResponseHandler());
                     ibHeart.setImageResource(R.drawable.ic_vector_heart_stroke);
+                    tweet.setFavorited(false);
                 }
             }
         });
@@ -94,10 +96,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
         // set retweet button depending on whether already retweeted
         if (tweet.retweeted) {
             ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
-            ibRetweet.setTag(R.drawable.ic_vector_retweet);
         } else {
             ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
-            ibRetweet.setTag(R.drawable.ic_vector_retweet_stroke);
         }
     }
 

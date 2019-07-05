@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.parceler.Parcels;
 
@@ -27,6 +28,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     private List<Tweet> mTweets;
     Context context;
+    TwitterClient client;
     public static final int REPLY_TWEET_REQUEST_CODE = 1000;
 
     // pass in the Tweets array in the constructor
@@ -41,6 +43,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+
+        client = TwitterApp.getRestClient(context);
 
         // inflate tweet row
         View tweetView = inflater.inflate(R.layout.item_tweet, viewGroup, false);
@@ -59,6 +63,20 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         viewHolder.tvHandle.setText("@" + tweet.user.screenName);
         viewHolder.tvBody.setText(tweet.body);
         viewHolder.tvTimestamp.setText(tweet.createdAt);
+
+        // set heart button depending on whether tweet is already liked
+        if (tweet.favorited) {
+            viewHolder.ibHeart.setImageResource(R.drawable.ic_vector_heart);
+        } else {
+            viewHolder.ibHeart.setImageResource(R.drawable.ic_vector_heart_stroke);
+        }
+
+        // set retweet button depending on whether already retweeted
+        if (tweet.retweeted) {
+            viewHolder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
+        } else {
+            viewHolder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
+        }
 
         // load profile picture and crop to a circle
         Glide.with(context)
@@ -87,6 +105,23 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 @Override
                 public void onClick(View v) {
                     replyTweet(v);
+                }
+            });
+
+            ibHeart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // get tweet user is liking or unliking
+                    Tweet tweet = mTweets.get(getAdapterPosition());
+                    if (!tweet.favorited) {
+                        client.likeTweet(tweet.uid, new JsonHttpResponseHandler());
+                        ibHeart.setImageResource(R.drawable.ic_vector_heart);
+                        tweet.setFavorited(true);
+                    } else {
+                        client.unlikeTweet(tweet.uid, new JsonHttpResponseHandler());
+                        ibHeart.setImageResource(R.drawable.ic_vector_heart_stroke);
+                        tweet.setFavorited(false);
+                    }
                 }
             });
 

@@ -52,4 +52,8 @@ public class Tweet {
 
         return relativeDate;
     }
+
+    public void setFavorited(boolean favorited) {
+        this.favorited = favorited;
+    }
 }

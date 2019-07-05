@@ -21,6 +21,9 @@ public class Tweet {
     public boolean favorited;
     public boolean retweeted;
     public String mediaUrl;
+    public int favoriteCount;
+    public int retweetCount;
+    public int replyCount;
 
     // deserialize the JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
@@ -33,6 +36,15 @@ public class Tweet {
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
         tweet.favorited = jsonObject.getBoolean("favorited");
         tweet.retweeted = jsonObject.getBoolean("retweeted");
+        if (jsonObject.has("favorite_count")) {
+            tweet.favoriteCount = jsonObject.getInt("favorite_count");
+        }
+        if (jsonObject.has("retweet_count")) {
+            tweet.retweetCount = jsonObject.getInt("retweet_count");
+        }
+        if (jsonObject.has("reply_count")) {
+            tweet.replyCount = jsonObject.getInt("reply_count");
+        }
 
         JSONObject entities = jsonObject.getJSONObject("entities");
         // check if there is media

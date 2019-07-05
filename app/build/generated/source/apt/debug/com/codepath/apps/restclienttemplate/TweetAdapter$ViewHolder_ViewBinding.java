@@ -28,6 +28,9 @@ public class TweetAdapter$ViewHolder_ViewBinding<T extends TweetAdapter.ViewHold
     target.ibReply = Utils.findRequiredViewAsType(source, R.id.ibReply, "field 'ibReply'", ImageButton.class);
     target.ibRetweet = Utils.findRequiredViewAsType(source, R.id.ibRetweet, "field 'ibRetweet'", ImageButton.class);
     target.ivMedia = Utils.findOptionalViewAsType(source, R.id.ivMedia, "field 'ivMedia'", ImageView.class);
+    target.tvReplyCount = Utils.findOptionalViewAsType(source, R.id.tvReplyCount, "field 'tvReplyCount'", TextView.class);
+    target.tvRetweetCount = Utils.findOptionalViewAsType(source, R.id.tvRetweetCount, "field 'tvRetweetCount'", TextView.class);
+    target.tvFavoriteCount = Utils.findOptionalViewAsType(source, R.id.tvFavoriteCount, "field 'tvFavoriteCount'", TextView.class);
   }
 
   @Override
@@ -45,6 +48,9 @@ public class TweetAdapter$ViewHolder_ViewBinding<T extends TweetAdapter.ViewHold
     target.ibReply = null;
     target.ibRetweet = null;
     target.ivMedia = null;
+    target.tvReplyCount = null;
+    target.tvRetweetCount = null;
+    target.tvFavoriteCount = null;
 
     this.target = null;
   }

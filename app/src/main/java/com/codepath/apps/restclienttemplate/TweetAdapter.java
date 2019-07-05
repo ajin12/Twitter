@@ -66,6 +66,15 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         viewHolder.tvHandle.setText("@" + tweet.user.screenName);
         viewHolder.tvBody.setText(tweet.body);
         viewHolder.tvTimestamp.setText(tweet.createdAt);
+        if (tweet.replyCount != 0) {
+            viewHolder.tvReplyCount.setText(String.format(Integer.toString(tweet.replyCount)));
+        }
+        if (tweet.retweetCount != 0) {
+            viewHolder.tvRetweetCount.setText(String.format(Integer.toString(tweet.retweetCount)));
+        }
+        if (tweet.favoriteCount != 0) {
+            viewHolder.tvFavoriteCount.setText(String.format(Integer.toString(tweet.favoriteCount)));
+        }
 
         // set heart button depending on whether tweet is already liked
         if (tweet.favorited) {
@@ -108,6 +117,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         @BindView(R.id.ibReply) ImageButton ibReply;
         @BindView(R.id.ibRetweet) ImageButton ibRetweet;
         @Nullable @BindView(R.id.ivMedia) ImageView ivMedia;
+        @Nullable @BindView(R.id.tvReplyCount) TextView tvReplyCount;
+        @Nullable @BindView(R.id.tvRetweetCount) TextView tvRetweetCount;
+        @Nullable @BindView(R.id.tvFavoriteCount) TextView tvFavoriteCount;
 
         public ViewHolder(final View itemView) {
             super(itemView);

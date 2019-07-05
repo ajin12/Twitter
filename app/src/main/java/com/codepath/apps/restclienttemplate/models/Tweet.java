@@ -56,4 +56,8 @@ public class Tweet {
     public void setFavorited(boolean favorited) {
         this.favorited = favorited;
     }
+
+    public void setRetweeted(boolean retweeted) {
+        this.retweeted = retweeted;
+    }
 }

@@ -99,6 +99,21 @@ public class TweetDetailsActivity extends AppCompatActivity {
         } else {
             ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
         }
+
+        ibRetweet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!tweet.retweeted) {
+                    client.retweetTweet(tweet.uid, new JsonHttpResponseHandler());
+                    ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
+                    tweet.setRetweeted(true);
+                } else {
+                    client.unretweetTweet(tweet.uid, new JsonHttpResponseHandler());
+                    ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
+                    tweet.setRetweeted(false);
+                }
+            }
+        });
     }
 
     private void replyTweet(View v) {

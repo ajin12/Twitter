@@ -91,18 +91,18 @@ public final class R {
         public static final int icon_group = 0x7f08005a;
         public static final int info = 0x7f08005d;
         public static final int italic = 0x7f08005f;
-        public static final int line1 = 0x7f080065;
-        public static final int line3 = 0x7f080066;
-        public static final int normal = 0x7f08007a;
-        public static final int notification_background = 0x7f08007b;
-        public static final int notification_main_column = 0x7f08007c;
-        public static final int notification_main_column_container = 0x7f08007d;
-        public static final int right_icon = 0x7f08008b;
-        public static final int right_side = 0x7f08008c;
-        public static final int text = 0x7f0800be;
-        public static final int text2 = 0x7f0800bf;
-        public static final int time = 0x7f0800c8;
-        public static final int title = 0x7f0800c9;
+        public static final int line1 = 0x7f080066;
+        public static final int line3 = 0x7f080067;
+        public static final int normal = 0x7f08007b;
+        public static final int notification_background = 0x7f08007c;
+        public static final int notification_main_column = 0x7f08007d;
+        public static final int notification_main_column_container = 0x7f08007e;
+        public static final int right_icon = 0x7f08008c;
+        public static final int right_side = 0x7f08008d;
+        public static final int text = 0x7f0800bf;
+        public static final int text2 = 0x7f0800c0;
+        public static final int time = 0x7f0800c9;
+        public static final int title = 0x7f0800ca;
     }
     public static final class integer {
         private integer() {}

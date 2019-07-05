@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -36,6 +38,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
     @BindView(R.id.ibReply) ImageButton ibReply;
     @BindView(R.id.ibRetweet) ImageButton ibRetweet;
     @BindView(R.id.ibHeart) ImageButton ibHeart;
+    @BindView(R.id.ivMedia) ImageView ivMedia;
 
     // context for rendering
     Context context;
@@ -58,11 +61,19 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvTimestamp.setText(tweet.createdAt);
 
         // set profile picture
-        context = ivProfileImage.getContext();
-        Glide.with(context)
+        Glide.with(ivProfileImage.getContext())
                 .load(tweet.user.profileImageUrl)
                 .apply(RequestOptions.circleCropTransform())
                 .into(ivProfileImage);
+
+        // set media image if it exists
+
+        if (tweet.mediaUrl != null) {
+            Glide.with(ivMedia.getContext())
+                    .load(tweet.mediaUrl)
+                    .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(80)))
+                    .into(ivMedia);
+        }
 
         ibReply.setOnClickListener(new View.OnClickListener() {
             @Override

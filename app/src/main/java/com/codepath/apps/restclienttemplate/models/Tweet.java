@@ -20,6 +20,7 @@ public class Tweet {
     public String createdAt;
     public boolean favorited;
     public boolean retweeted;
+    public String mediaUrl;
 
     // deserialize the JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
@@ -32,6 +33,15 @@ public class Tweet {
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
         tweet.favorited = jsonObject.getBoolean("favorited");
         tweet.retweeted = jsonObject.getBoolean("retweeted");
+
+        JSONObject entities = jsonObject.getJSONObject("entities");
+        // check if there is media
+        if (entities.has("media")) {
+            // extract media url from the first image entity
+            tweet.mediaUrl = entities.getJSONArray("media").getJSONObject(0)
+                    .getString("media_url_https");
+        }
+
         return tweet;
     }
 

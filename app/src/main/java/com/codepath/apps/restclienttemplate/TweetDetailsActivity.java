@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -38,7 +39,10 @@ public class TweetDetailsActivity extends AppCompatActivity {
     @BindView(R.id.ibReply) ImageButton ibReply;
     @BindView(R.id.ibRetweet) ImageButton ibRetweet;
     @BindView(R.id.ibHeart) ImageButton ibHeart;
-    @BindView(R.id.ivMedia) ImageView ivMedia;
+    @Nullable @BindView(R.id.ivMedia) ImageView ivMedia;
+    @Nullable @BindView(R.id.tvReplyCount) TextView tvReplyCount;
+    @Nullable @BindView(R.id.tvRetweetCount) TextView tvRetweetCount;
+    @Nullable @BindView(R.id.tvFavoriteCount) TextView tvFavoriteCount;
 
     // context for rendering
     Context context;
@@ -59,6 +63,22 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvBody.setText(tweet.body);
         tvUserHandle.setText("@" + tweet.user.screenName);
         tvTimestamp.setText(tweet.createdAt);
+        if (tweet.replyCount != 0) {
+            tvReplyCount.setText(String.format(Integer.toString(tweet.replyCount)));
+        } else {
+            tvReplyCount.setText("");
+        }
+        if (tweet.retweetCount != 0) {
+            tvRetweetCount.setText(String.format(Integer.toString(tweet.retweetCount)));
+        } else {
+            tvRetweetCount.setText("");
+        }
+        // This object is only available with the Premium and Enterprise tier products.
+        if (tweet.favoriteCount != 0) {
+            tvFavoriteCount.setText(String.format(Integer.toString(tweet.favoriteCount)));
+        } else {
+            tvFavoriteCount.setText("");
+        }
 
         // set profile picture
         Glide.with(ivProfileImage.getContext())

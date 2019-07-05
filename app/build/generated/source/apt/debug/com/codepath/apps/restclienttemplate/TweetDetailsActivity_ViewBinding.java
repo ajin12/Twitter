@@ -27,7 +27,10 @@ public class TweetDetailsActivity_ViewBinding<T extends TweetDetailsActivity> im
     target.ibReply = Utils.findRequiredViewAsType(source, R.id.ibReply, "field 'ibReply'", ImageButton.class);
     target.ibRetweet = Utils.findRequiredViewAsType(source, R.id.ibRetweet, "field 'ibRetweet'", ImageButton.class);
     target.ibHeart = Utils.findRequiredViewAsType(source, R.id.ibHeart, "field 'ibHeart'", ImageButton.class);
-    target.ivMedia = Utils.findRequiredViewAsType(source, R.id.ivMedia, "field 'ivMedia'", ImageView.class);
+    target.ivMedia = Utils.findOptionalViewAsType(source, R.id.ivMedia, "field 'ivMedia'", ImageView.class);
+    target.tvReplyCount = Utils.findOptionalViewAsType(source, R.id.tvReplyCount, "field 'tvReplyCount'", TextView.class);
+    target.tvRetweetCount = Utils.findOptionalViewAsType(source, R.id.tvRetweetCount, "field 'tvRetweetCount'", TextView.class);
+    target.tvFavoriteCount = Utils.findOptionalViewAsType(source, R.id.tvFavoriteCount, "field 'tvFavoriteCount'", TextView.class);
   }
 
   @Override
@@ -45,6 +48,9 @@ public class TweetDetailsActivity_ViewBinding<T extends TweetDetailsActivity> im
     target.ibRetweet = null;
     target.ibHeart = null;
     target.ivMedia = null;
+    target.tvReplyCount = null;
+    target.tvRetweetCount = null;
+    target.tvFavoriteCount = null;
 
     this.target = null;
   }

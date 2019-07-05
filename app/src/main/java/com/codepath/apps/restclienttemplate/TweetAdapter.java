@@ -66,7 +66,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         viewHolder.tvHandle.setText("@" + tweet.user.screenName);
         viewHolder.tvBody.setText(tweet.body);
         viewHolder.tvTimestamp.setText(tweet.createdAt);
-//        TODO if else not necessary?
         if (tweet.replyCount != 0) {
             viewHolder.tvReplyCount.setText(String.format(Integer.toString(tweet.replyCount)));
         } else {
@@ -77,6 +76,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         } else {
             viewHolder.tvRetweetCount.setText("");
         }
+        // This object is only available with the Premium and Enterprise tier products.
         if (tweet.favoriteCount != 0) {
             viewHolder.tvFavoriteCount.setText(String.format(Integer.toString(tweet.favoriteCount)));
         } else {

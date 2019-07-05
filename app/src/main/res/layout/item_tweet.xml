@@ -118,21 +118,19 @@
 
     <TextView
         android:id="@+id/tvReplyCount"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/ibReply"
         app:layout_constraintStart_toEndOf="@+id/ibReply"
         app:layout_constraintTop_toTopOf="@+id/ibReply" />
 
     <TextView
         android:id="@+id/tvRetweetCount"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="24dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/ibRetweet"
         app:layout_constraintEnd_toStartOf="@+id/ibHeart"
         app:layout_constraintStart_toEndOf="@+id/ibRetweet"
@@ -141,10 +139,9 @@
 
     <TextView
         android:id="@+id/tvFavoriteCount"
-        android:layout_width="0dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/ibHeart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ibHeart" />
